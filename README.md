@@ -26,22 +26,22 @@
 ## 常用命令
 
 ```powershell
-npm --prefix apps/command-runner run build:backend      # 构建 Go sidecar
-npm --prefix apps/command-runner run build:ui           # backend + vite + resources
-npm --prefix apps/command-runner run build:exe:dev      # dev exe
-npm --prefix apps/command-runner run build:app:dev      # dev staging 容器
-npm --prefix apps/command-runner run build:app          # release staging 容器
-npm --prefix apps/command-runner run apps:version:check # 版本一致性
+npm run build:backend      # 构建 Go sidecar
+npm run build:ui           # backend + vite + resources
+npm run build:exe:dev      # dev exe
+npm run build:app:dev      # dev staging 容器
+npm run build:app          # release staging 容器
+npm run apps:version:check # 版本一致性
 ```
 
 ## 验收
 
 ```powershell
-go test ./...            # 在 apps/command-runner/backend-go 下执行
-cargo test --manifest-path apps/command-runner/src-tauri/Cargo.toml
-npm --prefix apps/command-runner exec -- tsc --noEmit
-npm --prefix apps/command-runner run build:ui
-npm --prefix apps/command-runner run build:app:dev
+go test ./...            # 在 backend-go 下执行
+cargo test --manifest-path src-tauri/Cargo.toml
+npm exec -- tsc --noEmit
+npm run build:ui
+npm run build:app:dev
 ```
 
 手动验收要点：
