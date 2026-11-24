@@ -26,12 +26,12 @@
 ## 常用命令
 
 ```powershell
-pnpm --dir apps/command-runner build:backend      # 构建 Go sidecar
-pnpm --dir apps/command-runner build:ui           # backend + vite + resources
-pnpm --dir apps/command-runner build:exe:dev      # dev exe
-pnpm --dir apps/command-runner build:app:dev      # dev staging 容器
-pnpm --dir apps/command-runner build:app          # release staging 容器
-pnpm --dir apps/command-runner apps:version:check # 版本一致性
+npm --prefix apps/command-runner run build:backend      # 构建 Go sidecar
+npm --prefix apps/command-runner run build:ui           # backend + vite + resources
+npm --prefix apps/command-runner run build:exe:dev      # dev exe
+npm --prefix apps/command-runner run build:app:dev      # dev staging 容器
+npm --prefix apps/command-runner run build:app          # release staging 容器
+npm --prefix apps/command-runner run apps:version:check # 版本一致性
 ```
 
 ## 验收
@@ -39,9 +39,9 @@ pnpm --dir apps/command-runner apps:version:check # 版本一致性
 ```powershell
 go test ./...            # 在 apps/command-runner/backend-go 下执行
 cargo test --manifest-path apps/command-runner/src-tauri/Cargo.toml
-pnpm --dir apps/command-runner exec tsc --noEmit
-pnpm --dir apps/command-runner build:ui
-pnpm --dir apps/command-runner build:app:dev
+npm --prefix apps/command-runner exec -- tsc --noEmit
+npm --prefix apps/command-runner run build:ui
+npm --prefix apps/command-runner run build:app:dev
 ```
 
 手动验收要点：
